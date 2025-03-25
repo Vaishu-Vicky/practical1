@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>order&unordered list&table</title>
+</head>
+<style>
+    /* General Styles */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        padding: 20px;
+        background-color:white ;
+    }
+    h2 {
+        color: #333;
+    }
+
+    /* Styling Lists */
+    ul, ol {
+        font-size: 18px;
+        margin: 10px 0;
+        padding-left: 20px;
+    }
+
+    /* Styling the Table */
+    table {
+        width: 80%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 18px;
+        background: white;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+    }
+    th {
+        background-color: #007BFF;
+        color: white;
+    }
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    input {
+        padding: 8px;
+        margin: 5px;
+        font-size: 16px;
+    }
+    button {
+        padding: 8px 12px;
+        font-size: 16px;
+        color: white;
+        background-color: #28a745;
+        border: none;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #218838;
+    }
+    .container{
+        width: 60%;
+        margin: 0 auto;
+        background: linear-gradient(to right,rgb(145, 227, 233),white, rgb(166, 204, 230),rgb(145, 227, 233));
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: #333;
+        
+    }
+</style>
+<body>
+    <div class="container">
+    <h2> Languages on Unordered list<h2>
+    <ul>
+        <li>Web development</li>
+        <li>Python</li>
+        <li>Java</li>
+    </ul>
+    <h2> Framework on ordered list</h2>
+    <ol>
+        <li>React</li>
+        <li>Angular</li>
+        <li>Flask</li>
+    </ol>
+    <h2>Table format data</h2>
+    <table id="dataTable">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>City</th>
+        </tr>
+        <tr>
+            <td>John</td>
+            <td>25</td>
+            <td>Salem</td>
+        </tr>
+        <tr>
+            <td>Doe</td>
+            <td>22</td>
+            <td>Chennai</td>
+        </tr>
+    </table>
+    <h2>Add a New Entry</h2>
+    <input type="text" id="name" placeholder="Enter Name">
+    <input type="number" id="age" placeholder="Enter Age">
+    <input type="text" id="city" placeholder="Enter City">
+    <button onclick="addRow()">Add Row</button>
+    <script>
+        function addRow() {
+            let name = document.getElementById("name").value;
+            let age = document.getElementById("age").value;
+            let city = document.getElementById("city").value;
+            if (name === "" || age === "" || city === "") {
+                alert("Please fill all fields!");
+                return;
+            }
+            let table = document.getElementById("dataTable");
+            let newRow = table.insertRow(-1);
+            let cell1 = newRow.insertCell(0);
+            let cell2 = newRow.insertCell(1);
+            let cell3 = newRow.insertCell(2);
+            cell1.innerHTML = name;
+            cell2.innerHTML = age;
+            cell3.innerHTML = city;
+        }
+    </script>
+</div>
+</body>
+</html>
